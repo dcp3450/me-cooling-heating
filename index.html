@@ -8,11 +8,35 @@
 	<meta charset="utf-8">
 	<!--[if IE]><![endif]-->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title></title>
+	<title>Mitsubishi Electric - Diamond Contractor Program</title>
 	<meta name="description" content="">
 	<meta name="keywords" content="" />
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	
+	<meta name="theme-color" content="#ff0000" />
+	<!-- 	favicons -->
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="apple-touch-icon-60x60.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152.png" />
+	<link rel="icon" type="image/png" href="favicon-196x196.png" sizes="196x196" />
+	<link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+	<link rel="icon" type="image/png" href="favicon-128.png" sizes="128x128" />
+	<meta name="msapplication-TileColor" content="#FFFFFF" />
+	<meta name="msapplication-TileImage" content="mstile-144x144.png" />
+	<meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+	<meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+	<meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+	<meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+
+	
 	<!-- !CSS -->
 	<link rel="stylesheet" href="css/main.css">
 </head>
@@ -20,24 +44,31 @@
 <body>
 	<div id="container">
 		<header>
-			
+			<!-- ensure content stays centered on large screens -->
 			<div class="container">
 				
+				<!-- link the logo home and provide a class for sizing -->
 				<a href="/"><img src="img/logo.png" class="logo" /></a>
 				
 			</div>
 			
 		</header><!-- /header -->
-			
+		
+		<!-- large area the top of the page, background is a cover background image -->
 		<div id="hero">
 			
+			<!-- ensure content stays centered on large screens -->
 			<div class="container">
 				
+				<!-- provide a container to set to dislay table so the content can be vertically centered -->
 				<div class="hero-content">
 					
+					<!-- provide another container to set to display table-cell for vertical centering -->
 					<div class="content">
 						<p class="title">Diamond Contractor<sup>tm</sup> Program</p>
 						<p class="text">Join the elite team of Mitsubishi Electric Diamond Contractors and get exclusive access to powerful sales, marketing and service tools that drive more sales and elevate your business.</p>
+						
+						<!-- anchor tag in block element to ensure no overlapping. form-trigger class opens the overlay/form -->
 						<p><a href="#" class="button form-trigger">Get Started</a></p>
 					</div>
 					
@@ -47,16 +78,22 @@
 			
 		</div>
 		
+		<!-- group main content together -->
 		<section id="main">
 			
+			<!-- break areas into articles and use classes to set the background color -->
 			<article class="light">
 				
+				<!-- ensure content stays centered on large screens -->
 				<div class="container">
 					
+					<!-- set a different width than the container and shift content over to match design -->
 					<div class="content">
 						
+						<!-- breaking left and right content into their own boxes for spacing and sizing -->
 						<div class="left">
 							
+							<!-- using h4 hear since the size is drastically different -->
 							<h4>Diamond Contractors</h4>
 							<h2>Rise to the Top</h2>
 							<p>At Mitsubishi Electric, we are committed to providing our Diamond Contractors resources 
@@ -67,6 +104,7 @@ an outstanding level of training, expertise and customer satisfaction, Diamond C
 						
 						<div class="right">
 							
+							<!-- used single image with a class to target for the solid shadow -->
 							<img src="img/bedroom_photo.jpg" class="img-shadow" />
 							
 						</div>
@@ -86,6 +124,7 @@ an outstanding level of training, expertise and customer satisfaction, Diamond C
 							<h4>The Program</h4>
 							<h2>Key Components</h2>
 							
+							<!-- desktop view tabs to trigger the tab content in tab-target class -->
 							<ul class="tabs">
 								<li class="active"><span>Brand</span></li>
 								<li><span>Product</span></li>
@@ -96,6 +135,7 @@ an outstanding level of training, expertise and customer satisfaction, Diamond C
 								<li><span>Recognition</span></li>
 							</ul>
 							
+							<!-- using a select for mobile sizes since the tab wraps and ux/ui is terrible stacked. -->
 							<select class="mobile-tabs">
 								<option value="0" selected>Brand</option>
 								<option value="1">Product</option>
@@ -106,14 +146,18 @@ an outstanding level of training, expertise and customer satisfaction, Diamond C
 								<option value="6">Recognition</option>
 							</select>
 							
+							<!-- grouping tab content into a single container -->
 							<div class="tab-target">
 								
+								<!-- only the content changes, since the sizes and layout doesn't change this is esier to organize and requires less bytes -->
 								<div class="target active">
 									
+									<!-- for each of these the icon-box sets the width of the left side and sets up the ability to vertially align icon -->
 									<div class="icon-box">
 										<div class="icon"><span><img src="img/tabicons/icon-1-BRAND.png" /></span></div>
 									</div>
 									
+									<!-- for each of these the details box sets the width of the right side and sets up the ability to vertically center the text -->
 									<div class="details">
 										
 										<p>Combined with the power of the Mitsubishi Electric brand, becoming a Diamond Contractor elevates your reputation and increases your business opportunities.</p>
@@ -208,7 +252,12 @@ an outstanding level of training, expertise and customer satisfaction, Diamond C
 								
 							</div>
 							
-							<p class="align-center"><a href="#" class="button icon download">Download</a></p>
+							<!-- placed the link in a block element to ensure layout -->
+							<p class="align-center">
+								
+								<!-- I'm using an icon class to add more space for an icon and the download sets the icon. I'm doing this way incase the page is updated with more icon buttons -->
+								<a href="#" class="button icon download">Download</a>
+							</p>
 							
 						</div>
 						
@@ -221,15 +270,19 @@ an outstanding level of training, expertise and customer satisfaction, Diamond C
 		</section><!-- /main -->
 		
 		<footer>
-			
+			<!-- ensure content stays centered on large screens -->
 			<div class="container">
 					
+					<!-- using content in the same way in article since these areas are lined up -->
 					<div class="content">
 						
+						<!-- setting the footer logo with the logo class for sizing -->
 						<img src="img/logo_white.png" class="logo" />
 						
+						<!-- contain both menus in one box so I can size them and manipulate as one -->
 						<div class="social-menu">
 							
+							<!-- I used font icons as a demo, plus they render better than images. I wanted a hover effect here and the image didn't allow for that -->
 							<ul class="social">
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -238,6 +291,7 @@ an outstanding level of training, expertise and customer satisfaction, Diamond C
 								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 								<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
 								<li><a href="#"><i class="fa fa-houzz"></i></a></li>
+								<!-- I used an image here since I had no choice, as this icon was unique -->
 								<li><a href="#" class="blog"><img src="img/blog-icon.png" /></a></li>
 							</ul>
 							
@@ -261,49 +315,71 @@ an outstanding level of training, expertise and customer satisfaction, Diamond C
 		</footer><!-- /footer -->
 	</div><!--!/#container -->
 	
+	<!-- I have the overlay on it's own so if we add more popups we don't have to have multiple overlays -->
 	<div id="overlay"></div>
-		
+	
+	<!-- popup for the form -->
 	<div class="form-container">
 			
 			<p class="title">Ready to Get Started?</p>
 			<p class="intro">If you would like to learn more about how the Diamond Contractor program can help you build your business or are ready to get started, please complete the form below. We will contact you shortly to see how we can help.</p>
+			
+			<!-- form success message -->
 			<p class="thank-you">Thank you, we'll be in touch soon!</p>
 			
+			<!-- form failure message -->
+			<p class="no-send">Sorry, we had an issue. Please try again.</p>
+			
+			<!-- form container with id to catch submission for ajax -->
 			<form id="brochureForm">
+				
+				<!-- wrapping form inputs so I can style any margins, borders, etc away from the submit button -->
 				<div class="form-inputs">
+					
+					<!-- grouping each set of inputs together so I can space them correctly -->
 					<div class="row">
+						
+						<!-- each input cell can be styled as needed, the "required" class tells js to check the input in this cell. It allso add the * to the label -->
 						<div class="input-cell required">
+							
+							<!-- for label match the id as per web standard -->
 							<label for="firstname">First Name</label>
-							<input type="text" id="firstname" name="firstname"  />
+							
+							<!-- using the html5 required attribute so the browser does the first round of checks -->
+							<input type="text" id="firstname" name="firstname" required />
 						</div>
 						
 						<div class="input-cell required">
 							<label for="lastname">Last Name</label>
-							<input type="text" id="lastname" name="lastname"  />
+							<input type="text" id="lastname" name="lastname" required />
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="input-cell required">
 							<label for="company">Company</label>
-							<input type="text" id="company" name="company"  />
+							<input type="text" id="company" name="company" required />
 						</div>
 						
 						<div class="input-cell required">
 							<label for="email">Email Address</label>
-							<input type="email" id="email" name="email"  />
+							
+							<!-- html5 email in put type used so the browser can catch bad emails for me -->
+							<input type="email" id="email" name="email" required />
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="input-cell required">
 							<label for="companycity">Company City</label>
-							<input type="text" id="companycity" name="companycity"  />
+							<input type="text" id="companycity" name="companycity" required />
 						</div>
 						
 						<div class="input-cell required">
 							<label for="telephone">Contact Phone Number</label>
-							<input type="tel" id="telephone" name="telephone"  />
+							
+							<!-- tel type isn't widely supported yet but it falls back to text for those that don't -->
+							<input type="tel" id="telephone" name="telephone" reqired />
 						</div>
 					</div>
 				</div>
@@ -314,8 +390,6 @@ an outstanding level of training, expertise and customer satisfaction, Diamond C
 			
 		</div>
 		
-	
-	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="js/main.js"></script>
 </body>

@@ -15,6 +15,94 @@
 		"oAP": "\/.gitignore",
 		"oF": 0
 		},
+	"\/apple-touch-icon-114x114.png": {
+		"ft": 32768,
+		"iS": 10441,
+		"oA": 0,
+		"oAP": "\/apple-touch-icon-114x114.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/apple-touch-icon-120x120.png": {
+		"ft": 32768,
+		"iS": 9990,
+		"oA": 0,
+		"oAP": "\/apple-touch-icon-120x120.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/apple-touch-icon-144x144.png": {
+		"ft": 32768,
+		"iS": 14316,
+		"oA": 0,
+		"oAP": "\/apple-touch-icon-144x144.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/apple-touch-icon-152x152.png": {
+		"ft": 32768,
+		"iS": 14462,
+		"oA": 0,
+		"oAP": "\/apple-touch-icon-152x152.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/apple-touch-icon-57x57.png": {
+		"ft": 32768,
+		"iS": 3514,
+		"oA": 0,
+		"oAP": "\/apple-touch-icon-57x57.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/apple-touch-icon-60x60.png": {
+		"ft": 32768,
+		"iS": 3484,
+		"oA": 0,
+		"oAP": "\/apple-touch-icon-60x60.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/apple-touch-icon-72x72.png": {
+		"ft": 32768,
+		"iS": 4740,
+		"oA": 0,
+		"oAP": "\/apple-touch-icon-72x72.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/apple-touch-icon-76x76.png": {
+		"ft": 32768,
+		"iS": 5384,
+		"oA": 0,
+		"oAP": "\/apple-touch-icon-76x76.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/css\/main.css": {
 		"aP": 1,
 		"bl": 0,
@@ -24,6 +112,67 @@
 		"oAP": "\/css\/main-min.css",
 		"oF": 0,
 		"oS": 3
+		},
+	"\/favicon-128.png": {
+		"ft": 32768,
+		"iS": 5102,
+		"oA": 0,
+		"oAP": "\/favicon-128.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/favicon-16x16.png": {
+		"ft": 32768,
+		"iS": 471,
+		"oA": 0,
+		"oAP": "\/favicon-16x16.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/favicon-196x196.png": {
+		"ft": 32768,
+		"iS": 25524,
+		"oA": 0,
+		"oAP": "\/favicon-196x196.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/favicon-32x32.png": {
+		"ft": 32768,
+		"iS": 933,
+		"oA": 0,
+		"oAP": "\/favicon-32x32.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/favicon-96x96.png": {
+		"ft": 32768,
+		"iS": 7143,
+		"oA": 0,
+		"oAP": "\/favicon-96x96.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/favicon.ico": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/favicon.ico",
+		"oF": 0
 		},
 	"\/fonts\/GothamBoldRegular\/GothamBoldRegular.eot": {
 		"ft": 8192,
@@ -257,6 +406,61 @@
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
+		},
+	"\/mstile-144x144.png": {
+		"ft": 32768,
+		"iS": 14316,
+		"oA": 0,
+		"oAP": "\/mstile-144x144.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/mstile-150x150.png": {
+		"ft": 32768,
+		"iS": 36224,
+		"oA": 0,
+		"oAP": "\/mstile-150x150.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/mstile-310x150.png": {
+		"ft": 32768,
+		"iS": 22359,
+		"oA": 0,
+		"oAP": "\/mstile-310x150.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/mstile-310x310.png": {
+		"ft": 32768,
+		"iS": 53944,
+		"oA": 0,
+		"oAP": "\/mstile-310x310.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/mstile-70x70.png": {
+		"ft": 32768,
+		"iS": 5102,
+		"oA": 0,
+		"oAP": "\/mstile-70x70.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
 		},
 	"\/process.php": {
 		"ft": 8192,

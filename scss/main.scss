@@ -17,24 +17,27 @@ $borderRadius: 5px;
 
 //breakpoints
 $largeDesktop: new-breakpoint(min-width 1153px);
-$standardDesktop: new-breakpoint(min-width 769px max-width 1023px);
+$standardDesktop: new-breakpoint(min-width 769px max-width 1023px); //between standard 1024 and the lowest desktop size
 $smallDesktop: new-breakpoint(min-width 769px max-width 1152px);
-$allDesktop: new-breakpoint(min-width 769px);
-$allMobile: new-breakpoint(max-width 768px);
+$allDesktop: new-breakpoint(min-width 769px); //desktop only
+$allMobile: new-breakpoint(max-width 768px); //mobile only
 $smallDevices: new-breakpoint(max-width 639px);
-$tablet: new-breakpoint(min-width 640px max-width 768px);
-$smallTablet: new-breakpoint(min-width 480px max-width 639px);
-$phone: new-breakpoint(max-width 479px);
-$smallPhone: new-breakpoint(max-width 320px);
+$tablet: new-breakpoint(min-width 640px max-width 768px); //standard tablets such as ipads
+$smallTablet: new-breakpoint(min-width 480px max-width 639px); //small tablets, mostly androids
+$phone: new-breakpoint(max-width 479px); //larger phones
+$smallPhone: new-breakpoint(max-width 320px); //small phones, mostly iphone
 
 // Convert PX to EM global function
 @function pxtoem($px, $basepx){
     @return ($px/$basepx)+0em;
 }
 
+/* setup, base html elements, universal settings */
+//used to keep content centered on wide screns
 .container {
 	@include outer-container;
 	
+	//adding padding on smaller screens so text doesn't touch the edges
 	@include media($smallDesktop){
 		padding: 0 2%;
 	}
@@ -45,12 +48,14 @@ $smallPhone: new-breakpoint(max-width 320px);
 }
 
 body {
+	//set the default font color, family, size, etc. padding accounts the for the fixed header
 	color: $bodyText;
 	font-family: "GothamBookRegular", helvetica, arial, sans-serif;
 	font-size: 16px;
 	line-height: 24px;
 	padding-top: 100px;
 	
+	//adjust padding for the changing header height
 	@include media($smallTablet) {
 		padding-top: 78px;
 	}
@@ -61,17 +66,79 @@ body {
 }
 
 img {
+	//remove space from images
 	vertical-align: bottom;
 	
+	//the image shadow in the first article
 	&.img-shadow {
 		box-shadow: 15px 15px 0 #d9dce3;
 	}
 }
 
+//used to align elemnts as needed
 .align-center {
 	text-align: center;
 }
 
+//global button class for forms and styled elements
+.button {
+	background: $button;
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+	font-family: "GothamBookRegular", helvetica, arial, sans-serif;
+	font-size: 0.797em;
+	line-height: 1.584em;
+	padding: 10px 20px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: all .2s ease-in-out;
+	
+	&:hover {
+		background: tint($button,10%);
+	}
+	
+	&.download:after { //using a class with after instead of a direct image to make adding more and making changes easier
+		@include position(absolute,8px 20px null null);
+		content: url("../img/pdf-icon.png");
+		height: 17px;
+		width: 17px;
+	}
+	
+	&.icon {
+		padding-right: 40px; //double the padding to allow for icons
+	}
+}
+
+.title,
+h2 { //title and h2 are the same layout mostly but used in different ways
+	color: $headings;
+	font-family: "GothamBookRegular", helvetica, arial, sans-serif;
+	font-size: pxtoem(30,$basepx);
+	line-height: pxtoem(25.93,$basepx);
+	margin-bottom: 40px;
+	position: relative;
+	
+	&:after {
+		@include position(absolute,null null -7px 0);
+		background: $headingBorder;
+		content: "";
+		height: 2px;
+		width: 110px;
+	}
+}
+
+h4 {
+	color: black;
+	font-family: "GothamBookRegular", helvetica, arial, sans-serif;
+	font-size: pxtoem(14,$basepx);
+	line-height: pxtoem(14,$basepx);
+	text-transform: uppercase;
+}
+
+/* header */
 header {
 	@include position(fixed, 0 null null 0);
 	background: white;
@@ -81,6 +148,7 @@ header {
 	width: 100%;
 	z-index: 100;
 	
+	//adjust the height since the screen is smaller and the logo is adjusting to it
 	@include media($smallTablet) {
 		height: 78px;
 	}
@@ -93,6 +161,7 @@ header {
 		@include span-columns(2.8);
 		height: auto;
 		
+		//adjust logo to look best of different sizes
 		@include media($tablet) {
 			@include span-columns(3.8);
 		}
@@ -111,17 +180,78 @@ header {
 	}
 }
 
+/* hero */
+#hero {
+	background: white url('../img/hero.jpg') no-repeat 50% 0;
+	background-size: cover; //I wanted to use cover instead of a raw image so the image would be a persistant background regardless of width
+	float: left; //float and width 100 are used quite a bit since the grid layout is float based
+	width: 100%;
+	
+	.hero-content {
+		display: table; //I want to keep all text vertical centered even if the text changes, wraps, or get rendered by the browser different
+		height: 367px;
+		margin-left: 75px;
+		
+		@include media($phone) {
+			margin: 0 auto;
+		}
+	}
+	
+	//using this to center the content as well as set the width for the content area
+	.content {
+		@include span-columns(11);
+		display: table-cell;
+		float: none;
+		vertical-align: middle;
+		width: 580px;
+		
+		//adjust width based on screen size to prevent a horizontal scrollbar
+		@include media($smallTablet) {
+			width: 470px;
+		}
+		
+		@include media($phone) {
+			width: 300px;
+		}
+	}
+	
+	.title {
+		margin-bottom: 20px;
+		text-transform: uppercase;
+		
+		//adjust the font size of the title down since it has limited room
+		@include media($phone) {
+			font-size: pxtoem(20,$basepx);
+			line-height: pxtoem(20.93,$basepx);
+		}
+	}
+	
+	.text {
+		color: $bodyText;
+		font-size: 1em;
+		line-height: 1.5em;
+		margin-bottom: 40px;
+	}
+	
+	.button {
+		display: block;
+		width: 165px;
+	}
+}
+
+//section / articles
 section {
-	float: left;
+	float: left; //float and width used again to prevent collapsing on floated children elements
 	width: 100%;
 }
 
 article,
 footer {
 	float: left;
-	padding: 80px 0;
+	padding: 80px 0; //the design was inconsistant here. I used the closest padding they had in common to keep the layout uniform
 	width: 100%;
 	
+	//the content is smaller and shifted from the rest of the site
 	.content {
 		@include span-columns(16);
 		@include shift(2);
@@ -135,11 +265,11 @@ footer {
 		@include span-columns(6.9 of 16);
 		
 		p {
-			padding-left: 20px;
+			padding-left: 20px; //the paragraphs in this area is shifted
 		}
 		
 		@include media($allMobile) {
-			margin-bottom: 20px;
+			margin-bottom: 20px; //on mobile this is stacked so space is needed
 		}
 	}
 	
@@ -167,129 +297,18 @@ footer {
 	}
 }
 
-.button {
-	background: $button;
-	border-radius: 4px;
-	color: white;
-	cursor: pointer;
-	font-family: "GothamBookRegular", helvetica, arial, sans-serif;
-	font-size: 0.797em;
-	line-height: 1.584em;
-	padding: 10px 20px;
-	position: relative;
-	text-align: center;
-	text-decoration: none;
-	text-transform: uppercase;
-	transition: all .2s ease-in-out;
-	
-	&:hover {
-		background: tint($button,10%);
-	}
-	
-	&.download:after {
-		@include position(absolute,8px 20px null null);
-		content: url("../img/pdf-icon.png");
-		height: 17px;
-		width: 17px;
-	}
-	
-	&.icon {
-		padding-right: 40px;
-	}
-}
-
-#hero {
-	background: white url('../img/hero.jpg') no-repeat 50% 0;
-	background-size: cover;
-	float: left;
-	width: 100%;
-	
-	.hero-content {
-		display: table;
-		height: 367px;
-		margin-left: 75px;
-		
-		@include media($phone) {
-			margin: 0 auto;
-		}
-	}
-	
-	.content {
-		@include span-columns(11);
-		display: table-cell;
-		float: none;
-		vertical-align: middle;
-		width: 580px;
-		
-		@include media($smallTablet) {
-			width: 470px;
-		}
-		
-		@include media($phone) {
-			width: 300px;
-		}
-	}
-	
-	.title {
-		margin-bottom: 20px;
-		text-transform: uppercase;
-		
-		@include media($phone) {
-			font-size: pxtoem(20,$basepx);
-			line-height: pxtoem(20.93,$basepx);
-		}
-	}
-	
-	.text {
-		color: $bodyText;
-		font-size: 1em;
-		line-height: 1.5em;
-		margin-bottom: 40px;
-	}
-	
-	.button {
-		display: block;
-		width: 165px;
-	}
-}
-
-.title,
-h2 {
-	color: $headings;
-	font-family: "GothamBookRegular", helvetica, arial, sans-serif;
-	font-size: pxtoem(30,$basepx);
-	line-height: pxtoem(25.93,$basepx);
-	margin-bottom: 40px;
-	position: relative;
-	
-	&:after {
-		@include position(absolute,null null -7px 0);
-		background: $headingBorder;
-		content: "";
-		height: 2px;
-		width: 110px;
-	}
-}
-
-h4 {
-	color: black;
-	font-family: "GothamBookRegular", helvetica, arial, sans-serif;
-	font-size: pxtoem(14,$basepx);
-	line-height: pxtoem(14,$basepx);
-	text-transform: uppercase;
-}
-
+//tabs
 .tabs {
 	margin-bottom: 40px;
 	width: 100%;
 	
 	li {
-		border-left: 4px transparent solid;
+		border-left: 4px transparent solid; //the border has to be preset or it will shift the tabs too much
 		cursor: pointer;
 		display: inline-block;
-		margin-right: -4px;
-		padding: 23px 0;
-		transition: all .2s ease-in-out;
+		margin-right: -4px; //inline block has a foced 4px margin on elements. this is added to allow for better control over spacing of elements
+		padding: 23px 0; //I need the span to control the small borders so only top and bottom are set here
+		transition: all .2s ease-in-out; //wanted to animate the active change
 		
 		@include media($standardDesktop) {
 			padding: 15px 0;
@@ -299,7 +318,7 @@ h4 {
 		}
 		
 		span {
-			border-left: 1px $tabBorder solid;
+			border-left: 1px $tabBorder solid; //border only the left of the span elements since the height is only has high as the text
 			color: $tabs;
 			display: block;
 			font-family: "GothamBookRegular", helvetica, arial, sans-serif;
@@ -317,24 +336,24 @@ h4 {
 		
 		&.active {
 			background: white;
-			border-color: $tabBorder;
+			border-color: $tabBorder; //change the border from transparent
 			box-shadow: 0 0 19px rgba(0,0,0,.07);
 			
 			span {
-				border: none;
+				border: none; //if it's active don't show the span's border it would cause a dobule border
 				font-family: "GothamBoldRegular", helvetica, arial, sans-serif;
 				font-weight: bold;
 			}
 			
 			& + li span {
-				border: none;
+				border: none; //the span right next to the active li has a border that looks ugly, this hides it
 			}
 		}
 			
 		&:first-child {
 			
 			span {
-				border-left: none;
+				border-left: none; //we don't want any leading borders, only between items
 			}
 		}
 	}
@@ -358,7 +377,7 @@ h4 {
 	border-left: 4px $tabBorder solid;
 	margin-bottom: 40px;
 	
-	@include media($phone){
+	@include media($phone){ //I moved the border to the top on mobile since we stacked it. it leads the eye better: top/down on mobile ; left/right on desktop
 		border-left: none;
 		border-top: 4px $tabBorder solid;
 	}
@@ -389,7 +408,7 @@ h4 {
 	}
 	
 	.icon-box {
-		display: table;
+		display: table; //I want to keep it vetically centered so display table and height need to be set
 		height: 140px;
 		width: 16%;
 		
@@ -399,7 +418,7 @@ h4 {
 	}
 	
 	.icon {
-		display: table-cell;
+		display: table-cell; //I want to keep it vetically centered so display table-cell
 		vertical-align: middle;
 		
 		@include media($phone){
@@ -407,7 +426,7 @@ h4 {
 			padding: 20px 0;
 		}
 		
-		span {
+		span { //I like having the cirlce be an element for furture changes for brand or department
 			background: #e9ebef;
 			border-radius: 50%;
 		    box-shadow: 2px 2px 0px #d9dee8;
@@ -421,7 +440,7 @@ h4 {
 	}
 	
 	.details {
-		display: table;
+		display: table; //I want to keep it vetically centered so display table and height need to be set
 		height: 140px;
 		width: 84%;
 		
@@ -435,7 +454,7 @@ h4 {
 		}
 		
 		p {
-			display: table-cell;
+			display: table-cell; //I want to keep it vetically centered so display table-cell
 			vertical-align: middle;
 		}
 	}
@@ -444,7 +463,7 @@ h4 {
 	.details {
 		float: left;
 		
-		@include media($phone){
+		@include media($phone){ //stack areas on phones
 			display: block;
 			float: none;
 			width: 100%;
@@ -452,13 +471,14 @@ h4 {
 	}
 }
 
+//footer
 footer {
 	background: $footer;
 	color: $footerText;
 	padding-bottom: 20px;
 	padding-top: 75px;
 	
-	.logo {
+	.logo { //set the logo width and shift it's position based on design. this changes from screen to screen
 		@include span-columns(3 of 16);
 		@include shift(.56);
 		height: auto;
@@ -478,7 +498,7 @@ footer {
 		}
 	}
 	
-	.social-menu {
+	.social-menu { //wrap the social and footer menu then set their width and shift it's position based on design. this changes from screen to screen
 		@include span-columns(9.7 of 16);
 		@include shift(1.15 of 16);
 		margin-bottom: 55px;
@@ -500,25 +520,24 @@ footer {
 	
 	.social {
 		border-bottom: 2px rgba(150,150,150,.15) solid;
-		display: table;
+		display: table; //I'm not vertically aligning here. I'm using the table/table-cell combo to evenly space elements
 		margin-bottom: 20px;
 		padding-bottom: 20px;
 		width: 100%;
 		
 		li {
-			display: table-cell;
-			margin-right: -4px;
+			display: table-cell; //I'm not vertically aligning here. I'm using the table/table-cell combo to evenly space elements
 			padding-right: 7.5%;
 			
-			@include media($smallDesktop) {
+			@include media($smallDesktop) { //adjusting to fill in as much space as possible
 				padding-right: 5.5%;
 			}
 			
-			@include media($allMobile) {
+			@include media($allMobile) { //adjusting to fill in as much space as possible
 				padding-right: 3.5%;
 			}
 			
-			@include media($phone) {
+			@include media($phone) { //stacking to fill 2 rows since there isn't enough room
 				float: left;
 				display: block;
 				margin-bottom: 10px;
@@ -543,7 +562,7 @@ footer {
 			transition: all .2s ease-in-out;
 			width: 33px;
 			
-			@include media($phone) {
+			@include media($phone) { //center the block level elements on phones
 				margin: 0 auto;
 			}
 			
@@ -552,7 +571,7 @@ footer {
 			}
 		}
 		
-		.blog {
+		.blog { //blog had to be targeted spacifically since it's an image
 			line-height: pxtoem(29,$basepx);
 		}
 	}
@@ -564,15 +583,14 @@ footer {
 			border-right: 1px $footerBorder solid;
 			display: block;
 			float: left;
-			margin-right: -4px;
-			padding: 0 14px;
+			padding: 0 12px;
 			
 			@include media($smallDesktop) {
 				font-size: pxtoem(14, $basepx);
-				padding: 0 8px;
+				padding: 0 5px;
 			}
 			
-			@include media($standardDesktop) {
+			@include media($standardDesktop) { //splitting them to two lines on mobile
 				margin-bottom: 10px;
 				padding: 0px;
 				text-align: center;
@@ -602,7 +620,7 @@ footer {
 				}
 			}
 			
-			@include media($smallPhone) {
+			@include media($smallPhone) { //moving border to bottom and stacking the menu for phones
 				border-bottom: 1px $footerBorder solid;
 				border-right: 0;
 				margin-bottom: 10px;
@@ -646,27 +664,35 @@ footer {
 	}
 }
 
+/* overlay / popup background */
 #overlay {
 	@include position(fixed,0 null null 0);
 	background: #003d75;
 	background: rgba(0,61,117,.7);
-	display: none;
 	height: 100%;
+	opacity: 0;
+	transition: all .2s ease-in-out;
+	visibility: hidden;
 	width: 100%;
 	z-index: 101;
 	
 	&.active {
-		display: block;
+		opacity: 1;
+		visibility: visible;
 	}
 }
 
+/* forms / popups */
 .form-container {
 	@include position(absolute,40px null null 50%);
 	background: white;
-	display: none;
+	//display: none;
+	opacity: 0;
 	padding: 90px;
-	width: 936px;
 	transform: translateX(-50%);
+	transition: all .2s ease-in-out;
+	visibility: hidden;
+	width: 936px;
 	z-index: 102;
 	
 	@include media($standardDesktop) {
@@ -689,11 +715,12 @@ footer {
 	}
 	
 	&.active {
-		display: block;
+		opacity: 1;
+		visibility: visible;
 	}
 	
 	.title,
-	.intro {
+	.intro { //the titles and text are centered only on the popup, styles are the same otherwise
 		text-align: center;
 	}
 	
@@ -713,11 +740,16 @@ footer {
 		margin-bottom: 70px;
 	}
 	
-	.thank-you {
+	.thank-you,
+	.no-send {
 		color: #003d75;
 		display: none;
 		margin-bottom: 20px;
 		text-align: center;
+	}
+	
+	.no-send {
+		color: red;
 	}
 
 
@@ -744,8 +776,8 @@ footer {
 	
 	.input-cell {
 		float: left;
-		margin-right: 2.6490066225%;
-		width: 47.682119205%;
+		margin-right: 2.6490066225%; //I calculated these instead of using the grid system directly as it was esier with this design
+		width: 47.682119205%; //I calculated these instead of using the grid system directly as it was esier with this design
 	
 		@include media($smallTablet) {
 			margin-bottom: 20px;
@@ -783,7 +815,7 @@ footer {
 		}
 	}
 	
-	.required {
+	.required { //using a class to add the star to make it easier for future use and adding in inputs
 		label:before{
 			color: red;
 			content: "* "

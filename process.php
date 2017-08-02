@@ -1,4 +1,6 @@
 <?php
+	
+	//store all posted vars
 	$firstname = $_POST['firstname'];
 	$lastname = $_POST['lastname'];
 	$company = $_POST['company'];
@@ -6,10 +8,12 @@
 	$companycity = $_POST['companycity'];
 	$telephone = $_POST['telephone'];
 	
+	//set the from, to, and subject
 	$from = "dcp3450@gmail.com";
 	$to = $email;
 	$subject = "Thank you - from Mitsubishi Electric";
 	
+	//define the message using a template
 	$message = "
 	Hello {$firstname},
 	
@@ -27,7 +31,11 @@
 	John Doe
 	";
 	$headers = "From:" . $from;
+	
+	//send the email and respond with a 1 if it sends.
 	echo mail($to,$subject,$message, $headers);
+	
+	//always exit an ajax call after the function completes
 	exit;
 	
 ?>
