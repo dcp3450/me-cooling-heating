@@ -1,0 +1,23 @@
+@font-face {
+    font-family: GothamBookRegular;
+    font-style: normal;
+    font-weight: 300;
+    src:
+    	url(../fonts/GothamBookRegular/GothamBookRegular.eot?#iefix) format("embedded-opentype"),
+    	url(../fonts/GothamBookRegular/GothamBookRegular.woff) format("woff"),
+    	url(../fonts/GothamBookRegular/GothamBookRegular.ttf) format("truetype"),
+    	url(../fonts/GothamBookRegular/GothamBookRegular.svg#MuseoSlab_300) format("svg")
+}
+
+@font-face {
+    font-family: GothamBoldRegular;
+    font-style: bold;
+    font-weight: 300;
+    src:
+    	url(../fonts/GothamBoldRegular/GothamBoldRegular.eot?#iefix) format("embedded-opentype"),
+    	url(../fonts/GothamBoldRegular/GothamBoldRegular.woff) format("woff"),
+    	url(../fonts/GothamBoldRegular/GothamBoldRegular.ttf) format("truetype"),
+    	url(../fonts/GothamBoldRegular/GothamBoldRegular.svg#MuseoSlab_300) format("svg")
+}
+
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");

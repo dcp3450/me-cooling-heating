@@ -1,0 +1,798 @@
+$grid-columns: 19;
+$column: 55;
+$max-width: 1153px;
+$visual-grid: false;
+$visual-grid-index: front;
+$visual-grid-color: blue;
+$basepx: 16;
+
+// Imports
+@import "bourbon","neat/neat";
+@import "reset";
+@import "fonts";
+@import "colors";
+
+//vars
+$borderRadius: 5px;
+
+//breakpoints
+$largeDesktop: new-breakpoint(min-width 1153px);
+$standardDesktop: new-breakpoint(min-width 769px max-width 1023px);
+$smallDesktop: new-breakpoint(min-width 769px max-width 1152px);
+$allDesktop: new-breakpoint(min-width 769px);
+$allMobile: new-breakpoint(max-width 768px);
+$smallDevices: new-breakpoint(max-width 639px);
+$tablet: new-breakpoint(min-width 640px max-width 768px);
+$smallTablet: new-breakpoint(min-width 480px max-width 639px);
+$phone: new-breakpoint(max-width 479px);
+$smallPhone: new-breakpoint(max-width 320px);
+
+// Convert PX to EM global function
+@function pxtoem($px, $basepx){
+    @return ($px/$basepx)+0em;
+}
+
+.container {
+	@include outer-container;
+	
+	@include media($smallDesktop){
+		padding: 0 2%;
+	}
+	
+	@include media($allMobile){
+		padding: 0 2%;
+	}
+}
+
+body {
+	color: $bodyText;
+	font-family: "GothamBookRegular", helvetica, arial, sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	padding-top: 100px;
+	
+	@include media($smallTablet) {
+		padding-top: 78px;
+	}
+	
+	@include media($phone) {
+		padding-top: 78px;
+	}
+}
+
+img {
+	vertical-align: bottom;
+	
+	&.img-shadow {
+		box-shadow: 15px 15px 0 #d9dce3;
+	}
+}
+
+.align-center {
+	text-align: center;
+}
+
+header {
+	@include position(fixed, 0 null null 0);
+	background: white;
+	box-shadow: 0 6px 9px rgba(0,0,0,.06);
+	height: 100px;
+	padding: 14px 0;
+	width: 100%;
+	z-index: 100;
+	
+	@include media($smallTablet) {
+		height: 78px;
+	}
+	
+	@include media($phone) {
+		height: 78px;
+	}
+	
+	.logo {
+		@include span-columns(2.8);
+		height: auto;
+		
+		@include media($tablet) {
+			@include span-columns(3.8);
+		}
+		
+		@include media($smallTablet) {
+			@include span-columns(3.8);
+		}
+		
+		@include media($phone) {
+			@include span-columns(5);
+		}
+		
+		@include media($smallPhone) {
+			@include span-columns(7.4);
+		}
+	}
+}
+
+section {
+	float: left;
+	width: 100%;
+}
+
+article,
+footer {
+	float: left;
+	padding: 80px 0;
+	width: 100%;
+	
+	.content {
+		@include span-columns(16);
+		@include shift(2);
+		
+		@include media($smallDesktop) {
+			@include span-columns(14.7);
+		}
+	}
+	
+	.left {
+		@include span-columns(6.9 of 16);
+		
+		p {
+			padding-left: 20px;
+		}
+		
+		@include media($allMobile) {
+			margin-bottom: 20px;
+		}
+	}
+	
+	.right {
+		@include span-columns(7.1 of 16);
+		@include shift(2);
+	}
+	
+	.left,
+	.right {
+		img {
+			width: 100%;
+		}
+		
+		@include media($allMobile) {
+			@include shift(0);
+			
+			float: none;
+			width: 100%;
+		}
+	}
+	
+	&.dark {
+		background: #e9ebef;
+	}
+}
+
+.button {
+	background: $button;
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+	font-family: "GothamBookRegular", helvetica, arial, sans-serif;
+	font-size: 0.797em;
+	line-height: 1.584em;
+	padding: 10px 20px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: all .2s ease-in-out;
+	
+	&:hover {
+		background: tint($button,10%);
+	}
+	
+	&.download:after {
+		@include position(absolute,8px 20px null null);
+		content: url("../img/pdf-icon.png");
+		height: 17px;
+		width: 17px;
+	}
+	
+	&.icon {
+		padding-right: 40px;
+	}
+}
+
+#hero {
+	background: white url('../img/hero.jpg') no-repeat 50% 0;
+	background-size: cover;
+	float: left;
+	width: 100%;
+	
+	.hero-content {
+		display: table;
+		height: 367px;
+		margin-left: 75px;
+		
+		@include media($phone) {
+			margin: 0 auto;
+		}
+	}
+	
+	.content {
+		@include span-columns(11);
+		display: table-cell;
+		float: none;
+		vertical-align: middle;
+		width: 580px;
+		
+		@include media($smallTablet) {
+			width: 470px;
+		}
+		
+		@include media($phone) {
+			width: 300px;
+		}
+	}
+	
+	.title {
+		margin-bottom: 20px;
+		text-transform: uppercase;
+		
+		@include media($phone) {
+			font-size: pxtoem(20,$basepx);
+			line-height: pxtoem(20.93,$basepx);
+		}
+	}
+	
+	.text {
+		color: $bodyText;
+		font-size: 1em;
+		line-height: 1.5em;
+		margin-bottom: 40px;
+	}
+	
+	.button {
+		display: block;
+		width: 165px;
+	}
+}
+
+.title,
+h2 {
+	color: $headings;
+	font-family: "GothamBookRegular", helvetica, arial, sans-serif;
+	font-size: pxtoem(30,$basepx);
+	line-height: pxtoem(25.93,$basepx);
+	margin-bottom: 40px;
+	position: relative;
+	
+	&:after {
+		@include position(absolute,null null -7px 0);
+		background: $headingBorder;
+		content: "";
+		height: 2px;
+		width: 110px;
+	}
+}
+
+h4 {
+	color: black;
+	font-family: "GothamBookRegular", helvetica, arial, sans-serif;
+	font-size: pxtoem(14,$basepx);
+	line-height: pxtoem(14,$basepx);
+	text-transform: uppercase;
+}
+
+.tabs {
+	margin-bottom: 40px;
+	width: 100%;
+	
+	li {
+		border-left: 4px transparent solid;
+		cursor: pointer;
+		display: inline-block;
+		margin-right: -4px;
+		padding: 23px 0;
+		transition: all .2s ease-in-out;
+		
+		@include media($standardDesktop) {
+			padding: 15px 0;
+		}
+		@include media($allMobile) {
+			display: none;
+		}
+		
+		span {
+			border-left: 1px $tabBorder solid;
+			color: $tabs;
+			display: block;
+			font-family: "GothamBookRegular", helvetica, arial, sans-serif;
+			font-size: pxtoem(13,$basepx);
+			line-height: pxtoem(13,$basepx);
+			padding: 0 15px;
+			text-transform: uppercase;
+			
+			@include media($standardDesktop) {
+				font-size: pxtoem(12,$basepx);
+				line-height: pxtoem(12,$basepx);
+				padding: 0 5px;
+			}
+		}
+		
+		&.active {
+			background: white;
+			border-color: $tabBorder;
+			box-shadow: 0 0 19px rgba(0,0,0,.07);
+			
+			span {
+				border: none;
+				font-family: "GothamBoldRegular", helvetica, arial, sans-serif;
+				font-weight: bold;
+			}
+			
+			& + li span {
+				border: none;
+			}
+		}
+			
+		&:first-child {
+			
+			span {
+				border-left: none;
+			}
+		}
+	}
+}
+
+.mobile-tabs {
+	background: $inputBg;
+	border: 2px $inputBorder solid;
+	border-radius: 5px;
+	display: none;
+	margin-bottom: 40px;
+	padding: 10px;
+	width: 100%;
+	
+	@include media($allMobile){
+		display: block;
+	}
+}
+
+.tab-target {
+	border-left: 4px $tabBorder solid;
+	margin-bottom: 40px;
+	
+	@include media($phone){
+		border-left: none;
+		border-top: 4px $tabBorder solid;
+	}
+	
+	.target {
+		background: white;
+		box-shadow: 0 0 19px rgba(0,0,0,.07);
+		display: none;
+		height: 140px;
+		width: 750px;
+				
+		&.active {
+			display: block;
+		}
+		
+		@include media($standardDesktop) {
+			width: auto;
+		}
+		
+		@include media($allMobile) {
+			width: auto;
+		}
+		
+		@include media($phone) {
+			height: auto;
+			text-align: center;
+		}
+	}
+	
+	.icon-box {
+		display: table;
+		height: 140px;
+		width: 16%;
+		
+		@include media($phone) {
+			height: auto;
+		}
+	}
+	
+	.icon {
+		display: table-cell;
+		vertical-align: middle;
+		
+		@include media($phone){
+			display: inline-block;
+			padding: 20px 0;
+		}
+		
+		span {
+			background: #e9ebef;
+			border-radius: 50%;
+		    box-shadow: 2px 2px 0px #d9dee8;
+			display: block;
+			height: 49px;
+			margin: 0 auto;
+			padding: 12px 0;
+			text-align: center;
+			width: 49px;
+		}
+	}
+	
+	.details {
+		display: table;
+		height: 140px;
+		width: 84%;
+		
+		@include media($allMobile) {
+			padding: 0 2%;
+		}
+		
+		@include media($phone) {
+			height: auto;
+			padding: 0 20px 20px 20px;
+		}
+		
+		p {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+	
+	.icon-box,
+	.details {
+		float: left;
+		
+		@include media($phone){
+			display: block;
+			float: none;
+			width: 100%;
+		}
+	}
+}
+
+footer {
+	background: $footer;
+	color: $footerText;
+	padding-bottom: 20px;
+	padding-top: 75px;
+	
+	.logo {
+		@include span-columns(3 of 16);
+		@include shift(.56);
+		height: auto;
+		
+		@include media($smallTablet) {
+			@include span-columns(6 of 16);
+			@include shift(0);
+			float: none;
+			margin: 0 auto 20px auto;
+		}
+		
+		@include media($phone) {
+			@include span-columns(8 of 16);
+			@include shift(0);
+			float: none;
+			margin: 0 auto 20px auto;
+		}
+	}
+	
+	.social-menu {
+		@include span-columns(9.7 of 16);
+		@include shift(1.15 of 16);
+		margin-bottom: 55px;
+		
+		@include media($standardDesktop) {
+			@include span-columns(10.5 of 16);
+		}
+		
+		@include media($smallTablet) {
+			@include shift(0);
+			width: 100%;
+		}
+		
+		@include media($phone) {
+			@include shift(0);
+			width: 100%;
+		}
+	}
+	
+	.social {
+		border-bottom: 2px rgba(150,150,150,.15) solid;
+		display: table;
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+		width: 100%;
+		
+		li {
+			display: table-cell;
+			margin-right: -4px;
+			padding-right: 7.5%;
+			
+			@include media($smallDesktop) {
+				padding-right: 5.5%;
+			}
+			
+			@include media($allMobile) {
+				padding-right: 3.5%;
+			}
+			
+			@include media($phone) {
+				float: left;
+				display: block;
+				margin-bottom: 10px;
+				padding-right: 0;
+				width: 25%;
+			}
+			
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+		
+		a {
+			background: $social;
+			border-radius: 50%;
+			color: $footer;
+			display: block;
+			font-size: pxtoem(16,$basepx);
+			height: 33px;
+			line-height: pxtoem(35,$basepx);
+			text-align: center;
+			transition: all .2s ease-in-out;
+			width: 33px;
+			
+			@include media($phone) {
+				margin: 0 auto;
+			}
+			
+			&:hover {
+				background: $main;
+			}
+		}
+		
+		.blog {
+			line-height: pxtoem(29,$basepx);
+		}
+	}
+	
+	.menu {
+		width: 100%;
+		
+		li {
+			border-right: 1px $footerBorder solid;
+			display: block;
+			float: left;
+			margin-right: -4px;
+			padding: 0 14px;
+			
+			@include media($smallDesktop) {
+				font-size: pxtoem(14, $basepx);
+				padding: 0 8px;
+			}
+			
+			@include media($standardDesktop) {
+				margin-bottom: 10px;
+				padding: 0px;
+				text-align: center;
+				width: 33%;
+				
+				&:nth-child(3n) {
+					border-right: none;
+				}
+				
+				&:nth-child(n+4) {
+					margin-bottom: 0;
+				}
+			}
+			
+			@include media($allMobile) {
+				margin-bottom: 10px;
+				padding: 0px;
+				text-align: center;
+				width: 33%;
+				
+				&:nth-child(3n) {
+					border-right: none;
+				}
+				
+				&:nth-child(n+4) {
+					margin-bottom: 0;
+				}
+			}
+			
+			@include media($smallPhone) {
+				border-bottom: 1px $footerBorder solid;
+				border-right: 0;
+				margin-bottom: 10px;
+				padding: 0 0 10px 0;
+				text-align: center;
+				width: 100%;
+				
+				&:nth-child(n+4) {
+					margin-bottom: 10px;
+				}
+			}
+			
+			&:last-child {
+				border-right: none;
+			}
+			
+			&:first-child {
+				padding-left: 0;
+			}
+		}
+		
+		a {
+			color: $footerText;
+			display: block;
+			font-size: pxtoem(13.32,$basepx);
+			line-height: pxtoem(13.32,$basepx);
+			text-decoration: none;
+			transition: all .2s ease-in-out;
+			
+			&:hover {
+				color: $main;
+			}
+		}
+	}
+	
+	.copyright {
+		float: left;
+		font-size: pxtoem(10.47,$basepx);
+		line-height: pxtoem(15.3,$basepx);
+		width: 100%;
+	}
+}
+
+#overlay {
+	@include position(fixed,0 null null 0);
+	background: #003d75;
+	background: rgba(0,61,117,.7);
+	display: none;
+	height: 100%;
+	width: 100%;
+	z-index: 101;
+	
+	&.active {
+		display: block;
+	}
+}
+
+.form-container {
+	@include position(absolute,40px null null 50%);
+	background: white;
+	display: none;
+	padding: 90px;
+	width: 936px;
+	transform: translateX(-50%);
+	z-index: 102;
+	
+	@include media($standardDesktop) {
+		width: 740px;
+	}
+	
+	@include media($tablet) {
+		padding: 60px;
+		width: 630px;
+	}
+	
+	@include media($smallTablet) {
+		padding: 40px;
+		width: 460px;
+	}
+	
+	@include media($phone) {
+		padding: 20px;
+		width: 300px;
+	}
+	
+	&.active {
+		display: block;
+	}
+	
+	.title,
+	.intro {
+		text-align: center;
+	}
+	
+	.title {
+		@include media($phone) {
+			font-size: pxtoem(20,$basepx);
+			line-height: pxtoem(20.93,$basepx);
+		}
+		
+		&:after {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+	
+	.intro {
+		margin-bottom: 70px;
+	}
+	
+	.thank-you {
+		color: #003d75;
+		display: none;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+
+	.form-inputs {
+		float: left;
+		border-bottom: 1px #e9e9e9 solid;
+		margin-bottom: 40px;
+		width: 100%;
+	}
+	
+	.row {
+		float: left;
+		margin-bottom: 40px;
+		width: 100%;
+		
+		@include media($smallTablet) {
+			margin-bottom: 0;
+		}
+		
+		@include media($phone) {
+			margin-bottom: 0;
+		}
+	}
+	
+	.input-cell {
+		float: left;
+		margin-right: 2.6490066225%;
+		width: 47.682119205%;
+	
+		@include media($smallTablet) {
+			margin-bottom: 20px;
+			margin-right: 0;
+			width: 100%;
+		}
+	
+		@include media($phone) {
+			margin-bottom: 20px;
+			margin-right: 0;
+			width: 100%;
+		}
+		
+		label {
+			font-size: pxtoem(12.76,$basepx);
+			text-transform: uppercase;
+			line-height: pxtoem(25.37,$basepx);
+			width: 100%;
+		}
+		
+		input {
+			background: $inputBg;
+			border: 2px $inputBorder solid;
+			border-radius: 5px;
+			padding: 10px;
+			width: 100%;
+			
+			&.error {
+				border-color: red;
+			}
+		}
+		
+		&:last-child{
+			margin-right: 0;
+		}
+	}
+	
+	.required {
+		label:before{
+			color: red;
+			content: "* "
+		}
+	}
+	
+	input[type="submit"] {
+		appearance: none;
+		border: none;
+		width: 200px;
+	}
+}
