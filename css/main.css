@@ -122,6 +122,9 @@ img {
   text-align: center; }
 
 .button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background: #003d75;
   border-radius: 4px;
   color: white;
@@ -178,6 +181,7 @@ header {
   top: 0;
   left: 0;
   background: white;
+  box-shadow: 0 6px 9px black;
   box-shadow: 0 6px 9px rgba(0, 0, 0, 0.06);
   height: 100px;
   padding: 14px 0;
@@ -381,6 +385,7 @@ footer {
     .tabs li.active {
       background: white;
       border-color: #003d75;
+      box-shadow: 0 0 19px black;
       box-shadow: 0 0 19px rgba(0, 0, 0, 0.07); }
       .tabs li.active span {
         border: none;
@@ -412,6 +417,7 @@ footer {
       border-top: 4px #003d75 solid; } }
   .tab-target .target {
     background: white;
+    box-shadow: 0 0 19px black;
     box-shadow: 0 0 19px rgba(0, 0, 0, 0.07);
     display: none;
     height: 140px;
@@ -538,6 +544,7 @@ footer {
         margin-left: 0%;
         width: 100%; } }
   footer .social {
+    border-bottom: 2px #969696 solid;
     border-bottom: 2px rgba(150, 150, 150, 0.15) solid;
     display: table;
     margin-bottom: 20px;
@@ -662,26 +669,30 @@ footer {
   top: 40px;
   left: 50%;
   background: white;
+  margin-left: -468px;
   opacity: 0;
   padding: 90px;
-  transform: translateX(-50%);
   transition: all .2s ease-in-out;
   visibility: hidden;
   width: 936px;
   z-index: 102; }
   @media screen and (min-width: 769px) and (max-width: 1023px) {
     .form-container {
+      margin-left: -370px;
       width: 740px; } }
   @media screen and (min-width: 640px) and (max-width: 768px) {
     .form-container {
+      margin-left: -315px;
       padding: 60px;
       width: 630px; } }
   @media screen and (min-width: 480px) and (max-width: 639px) {
     .form-container {
+      margin-left: -230px;
       padding: 40px;
       width: 460px; } }
   @media screen and (max-width: 479px) {
     .form-container {
+      margin-left: -150px;
       padding: 20px;
       width: 300px; } }
   .form-container.active {
@@ -696,7 +707,8 @@ footer {
       line-height: 1.308125em; } }
   .form-container .title:after {
     left: 50%;
-    transform: translateX(-50%); }
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%); }
   .form-container .intro {
     margin-bottom: 70px; }
   .form-container .thank-you,
@@ -755,6 +767,8 @@ footer {
     color: red;
     content: "* "; }
   .form-container input[type="submit"] {
-    appearance: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
     border: none;
     width: 200px; }

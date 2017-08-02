@@ -81,10 +81,6 @@ jQuery(document).ready(function(){
 		var noSend = $('.form-container .no-send');
 		var thankYou = $('.form-container .thank-you');
 		
-		//hide any sending messages so all messages are fresh
-		noSend.hide();
-		thankYour.hide();
-		
 		//reset error classes in case it errored last time
 		$('.form-inputs input').removeClass('error');
 		
@@ -136,6 +132,12 @@ jQuery(document).ready(function(){
 		//close the overlay and the form
 		$('#overlay').removeClass('active');
 		$('.form-container').removeClass('active');
+		var noSend = $('.form-container .no-send');
+		var thankYou = $('.form-container .thank-you');
+		
+		//hide any sending messages so all messages are fresh
+		noSend.hide();
+		thankYou.hide();
 	}
 	
 	function changeTab(index){

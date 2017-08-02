@@ -82,6 +82,7 @@ img {
 
 //global button class for forms and styled elements
 .button {
+	appearance: none;
 	background: $button;
 	border-radius: 4px;
 	color: white;
@@ -142,6 +143,7 @@ h4 {
 header {
 	@include position(fixed, 0 null null 0);
 	background: white;
+	box-shadow: 0 6px 9px black;
 	box-shadow: 0 6px 9px rgba(0,0,0,.06);
 	height: 100px;
 	padding: 14px 0;
@@ -337,6 +339,7 @@ footer {
 		&.active {
 			background: white;
 			border-color: $tabBorder; //change the border from transparent
+			box-shadow: 0 0 19px black;
 			box-shadow: 0 0 19px rgba(0,0,0,.07);
 			
 			span {
@@ -384,6 +387,7 @@ footer {
 	
 	.target {
 		background: white;
+		box-shadow: 0 0 19px black;
 		box-shadow: 0 0 19px rgba(0,0,0,.07);
 		display: none;
 		height: 140px;
@@ -519,6 +523,7 @@ footer {
 	}
 	
 	.social {
+		border-bottom: 2px #969696 solid;
 		border-bottom: 2px rgba(150,150,150,.15) solid;
 		display: table; //I'm not vertically aligning here. I'm using the table/table-cell combo to evenly space elements
 		margin-bottom: 20px;
@@ -686,30 +691,33 @@ footer {
 .form-container {
 	@include position(absolute,40px null null 50%);
 	background: white;
-	//display: none;
+	margin-left: -468px;
 	opacity: 0;
 	padding: 90px;
-	transform: translateX(-50%);
 	transition: all .2s ease-in-out;
 	visibility: hidden;
 	width: 936px;
 	z-index: 102;
 	
 	@include media($standardDesktop) {
+		margin-left: -370px;
 		width: 740px;
 	}
 	
 	@include media($tablet) {
+		margin-left: -315px;
 		padding: 60px;
 		width: 630px;
 	}
 	
 	@include media($smallTablet) {
+		margin-left: -230px;
 		padding: 40px;
 		width: 460px;
 	}
 	
 	@include media($phone) {
+		margin-left: -150px;
 		padding: 20px;
 		width: 300px;
 	}
